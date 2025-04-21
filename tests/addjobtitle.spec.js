@@ -7,6 +7,8 @@ import jobtitledata from "../testdata/addjobtitle.json"
 
 
     test('Verify Add job title with Mandatory fields', async ({ page }) => {
+
+        test.setTimeout(60000)
         // Navigate to the application
         await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
@@ -25,8 +27,9 @@ import jobtitledata from "../testdata/addjobtitle.json"
 
         // Verify that the user is redirected to the dashboard page
      
-        await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
+        await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index', {timeout: 15000});
 
+        await expect(page.locator('ul[class="oxd-main-menu"]')).toBeVisible()
         // click on the admin module
         await page.locator('a[href="/web/index.php/admin/viewAdminModule"]').click();
 
