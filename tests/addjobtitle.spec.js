@@ -47,8 +47,9 @@ import jobtitledata from "../testdata/addjobtitle.json"
 
 
         await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveJobTitle');
+        const random5Char = Math.random().toString(36).substring(2, 7);
 
-        await page.locator("(//input[@class='oxd-input oxd-input--active'])[2]").fill(jobtitledata.jobTitle)
+        await page.locator("(//input[@class='oxd-input oxd-input--active'])[2]").fill(jobtitledata.jobTitle+random5Char)
 
         await page.locator("//textarea[@placeholder='Type description here']").fill(jobtitledata.jobDescription)
 
