@@ -4,8 +4,10 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
+ // await page.locator("#dummy").click() //
+
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/, {timeout : 30000});
+  await expect(page).toHaveTitle(/Playwright/);
 });
 
 test('get started link', async ({ page }) => {
