@@ -50,7 +50,7 @@ import jobtitledata from "../testdata/addjobtitle.json"
 
 
         await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveJobTitle');
-        const random5Char = Math.random().toString(36).substring(2, 7);
+        const random5Char = Math.random().toString(36).substring(2, 7); // 5 chars 
 
         await page.locator("(//input[@class='oxd-input oxd-input--active'])[2]").fill(jobtitledata.jobTitle+random5Char)
 

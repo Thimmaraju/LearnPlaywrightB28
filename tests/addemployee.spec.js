@@ -9,6 +9,7 @@ const employeedetails = {
 }
 
 test('test', async ({ page }) => {
+ 
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(logindata.username);
@@ -27,3 +28,7 @@ test('test', async ({ page }) => {
 });
 
 //Datadriven testing 
+
+//cy.visit("url")
+
+//await page.goto("Url")
