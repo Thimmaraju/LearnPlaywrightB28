@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 import logindata from "../testdata/login.json"
 
 
-const logininputs  = ["Admin", "admin123", "ekjnfiuhew", "ebfuhrewiuwbhf"]
+const logininputs = ["Admin", "admin123", "ekjnfiuhew", "ebfuhrewiuwbhf"]
+
+
 
 test("Verify login with valid credentials", async ({ page }) => {
 
@@ -17,68 +19,68 @@ test("Verify login with valid credentials", async ({ page }) => {
    await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
 
 
-  })
+})
 
 
-   test("Verify login with valid username and Invalid password", async ({ page }) => {
+test.only("Verify login with valid username and Invalid password", async ({ page }) => {
 
-      await page.goto("/web/index.php/auth/login")
+   await page.goto("/web/index.php/auth/login")
 
-      await page.locator("input[name='username']").fill(logininputs[0])
+   await page.locator("input[name='username']").fill(logininputs[0])
 
-      await page.locator("input[type='password']").fill(logininputs[3])
+   await page.locator("input[type='password']").fill(logininputs[3])
 
-      await page.locator("button[type='submit']").click()
+   await page.locator("button[type='submit']").click()
 
-      await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+   await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
 
-      await page.waitForTimeout(5000)
+   await page.waitForTimeout(5000)
 
-      await page.close()
-   })
-
-
-   test("Verify login with invalid username and valid password", async ({ page }) => {
+   await page.close()
+})
 
 
-       const wrongusername = "brfjb"
-       const passwrod = "admin123"
-      await page.goto("/web/index.php/auth/login")
-
-      await page.locator("input[name='username']").fill(wrongusername)
-
-      await page.locator("input[type='password']").fill(passwrod)
-
-      await page.locator("button[type='submit']").click()
-
-      await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
-
-      //await page.close()
-   })
+test("Verify login with invalid username and valid password", async ({ page }) => {
 
 
-   test("Verify login with invalid username and invalid password", async ({ page }) => {
+   const wrongusername = "brfjb"
+   const passwrod = "admin123"
+   await page.goto("/web/index.php/auth/login")
 
-      const logincreds =  ["ehfvbherwbfv", "fvuybeffuvbeu"]
+   await page.locator("input[name='username']").fill(wrongusername)
 
-      await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+   await page.locator("input[type='password']").fill(passwrod)
 
-      await page.locator("input[name='username']").fill(logincreds[0])
+   await page.locator("button[type='submit']").click()
 
-      await page.waitForTimeout(5000)
+   await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
 
-      await page.locator("input[type='password']").fill(logincreds[1])
+   //await page.close()
+})
 
-      await page.waitForTimeout(30000)
+
+test("Verify login with invalid username and invalid password", async ({ page }) => {
+
+   const logincreds = ["ehfvbherwbfv", "fvuybeffuvbeu"]
+
+   await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+
+   await page.locator("input[name='username']").fill(logincreds[0])
+
+   await page.waitForTimeout(5000)
+
+   await page.locator("input[type='password']").fill(logincreds[1])
+
+   await page.waitForTimeout(30000)
 
 
-      await page.locator("button[type='submit']").click()
+   await page.locator("button[type='submit']").click()
 
-      await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+   await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
 
-      //or 
+   //or 
 
-      await expect(page.locator("(//p[contains(@class,'oxd-text oxd-text--p')])[1]")).toHaveText('Invalid credentials');
+   await expect(page.locator("(//p[contains(@class,'oxd-text oxd-text--p')])[1]")).toHaveText('Invalid credentials');
 
-      //await page.close()
-   })
+   //await page.close()
+})
