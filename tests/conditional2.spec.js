@@ -1,6 +1,5 @@
 const { browser, test, expect } = require('@playwright/test');
-
-test("Click one of the elements that is visible out of two", async ({ page }) => {
+test("Click one of the elements that is visible out of two",{tag:["@smoke", "@raju"]}, async ({ page }) => {
 
     await page.goto("https://the-internet.herokuapp.com/disappearing_elements");
 

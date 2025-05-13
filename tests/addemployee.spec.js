@@ -8,7 +8,7 @@ const employeedetails = {
     lastname : "G"
 }
 
-test('test', async ({ page }) => {
+test('test',{tag: "@smoke"}, async ({ page }) => {
  
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();

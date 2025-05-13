@@ -6,13 +6,17 @@ const logininputs = ["Admin", "admin123", "ekjnfiuhew", "ebfuhrewiuwbhf"]
 
 
 
-test("Verify login with valid credentials", async ({ page }) => {
+test("Verify login with valid credentials",{tag: "@smoke"}, async ({ page }) => {
 
    await page.goto("/web/index.php/auth/login")
 
-   await page.locator("input[name='username']").fill(logininputs[0])
+   //await page.locator("//input[@name='username']").fill(logininputs[0])
 
-   await page.locator("input[type='password']").fill(logininputs[1])
+   await page.fill("//input[@name='username']", logininputs[0])
+
+   //await page.locator("input[type='password']").fill(logininputs[1])
+
+   await page.fill("input[type='password']", logininputs[1])
 
    await page.locator("button[type='submit']").click()
 

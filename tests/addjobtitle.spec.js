@@ -68,7 +68,7 @@ test.afterEach(async () => {
 
 });
 
-test('Verify Add job title with Mandatory fields', async () => {
+test('Verify Add job title with Mandatory fields', {tag : "@smoke"},async () => {
 
     const random5Char = Math.random().toString(36).substring(2, 7); // 5 chars 
 
