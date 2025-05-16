@@ -12,12 +12,12 @@ test('test',{tag: "@smoke"}, async ({ page }) => {
  
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(logindata.username);
+  await page.getByPlaceholder("Username ").fill(logindata.username);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(logindata.password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'PIM' }).click();
-  await page.getByRole('link', { name: 'Add Employee' }).click();
+  await page.getByRole("link", { name: 'Add Employee' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).fill(employeedetails.firstname);
   await page.getByRole('textbox', { name: 'Last Name' }).click();
