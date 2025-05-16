@@ -19,7 +19,7 @@ export default defineConfig({
 
     timeout : 15000
   },
-   timeout: 60000,
+  // timeout: 60000,
 
   testDir: './tests',
   //testDir: './e2e',
