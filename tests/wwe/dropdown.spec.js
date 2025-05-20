@@ -8,11 +8,13 @@ test("Working with dropdowns - example", async ({ page }) => {
 
     //text
 
-    //await page.locator('#country').selectOption("Egypt")
+    //await page.locator('#country').selectOption("Bangladesh")
     //or 
     //await page.locator('#country').selectOption({label : "Egypt"})
 
     //Value  - Attribute 
+
+   //await page.locator("#country").selectOption("18")
 
     //await page.locator('#country').selectOption("101")  //Iran
     //or
@@ -22,11 +24,11 @@ test("Working with dropdowns - example", async ({ page }) => {
 
     //await page.locator('#country').selectOption(4) -- this will not work 
 
-     await page.locator('#country').selectOption({index : 4})
+      await page.locator('#country').selectOption({index : 4})
 
  
  
-     await expect.soft(page.locator("#country>option")).toHaveCount(200) // Assertions
+    //  await expect.soft(page.locator("#country>option")).toHaveCount(200) // Assertions
 
       //expect.soft()
 
@@ -34,15 +36,18 @@ test("Working with dropdowns - example", async ({ page }) => {
 
     //console.log(options.length)
 
-    const dropdown = page.locator('#country'); // Use the correct selector for the dropdown
+    // const dropdown = page.locator('#country'); // Use the correct selector for the dropdown
 
-    // // Get all option elements within the dropdown
-    const options = await dropdown.locator('option').allTextContents();
-    console.log(options)
-    await page.waitForTimeout(5000)
+    // // // Get all option elements within the dropdown
+    // const options = await dropdown.locator('option').allTextContents();
+    // console.log(options)
+     await page.waitForTimeout(5000)
 
 })
 
+
+// Multiple selected items
+await page.getByLabel('Choose multiple colors').selectOption(['red', 'green', 'blue']);
 
 
 //hard assertion  
