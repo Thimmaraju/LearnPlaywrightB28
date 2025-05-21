@@ -6,7 +6,7 @@ test.describe('Automation - Working with Alerts', () => {
     await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
   });
 
-  test('Playwright Test Case - Simple Alert', async ({ page }) => {
+  test.only('Playwright Test Case - Simple Alert', async ({ page }) => {
     // Trigger the alert
     page.locator('text=Click for JS Alert').click();
     await page.waitForTimeout(5000)
@@ -20,7 +20,7 @@ test.describe('Automation - Working with Alerts', () => {
 
   });
 
-  test.only('Playwright Test Case - test Confirm Alert - OK', async ({ page }) => {
+  test('Playwright Test Case - test Confirm Alert - OK', async ({ page }) => {
     // Trigger the confirm alert
     page.locator('text=Click for JS Confirm').click();
     // Wait for the confirm dialog and accept it (Click OK)
@@ -31,7 +31,7 @@ test.describe('Automation - Working with Alerts', () => {
     await page.waitForTimeout(5000)
   });
 
-  test.only('Playwright Test Case - test Confirm Alert - Cancel', async ({ page }) => {
+  test('Playwright Test Case - test Confirm Alert - Cancel', async ({ page }) => {
     // Trigger the confirm alert
     page.locator('text=Click for JS Confirm').click();
 
@@ -50,7 +50,7 @@ test.describe('Automation - Working with Alerts', () => {
     // Intercept the prompt and return a response
     page.on('dialog', async dialog => {
       expect(dialog.type()).toBe('prompt');
-      await dialog.accept('Govardhan'); // Enter the value and accept
+      await dialog.accept('Deekshit'); // Enter the value and accept
     });
     await page.waitForTimeout(5000)
   });
