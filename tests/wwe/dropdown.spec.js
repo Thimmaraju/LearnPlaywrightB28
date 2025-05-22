@@ -47,7 +47,7 @@ test("Working with dropdowns - example", async ({ page }) => {
 
 
 // Multiple selected items
-await page.getByLabel('Choose multiple colors').selectOption(['red', 'green', 'blue']);
+//await page.getByLabel('Choose multiple colors').selectOption(['red', 'green', 'blue']);
 
 
 //hard assertion  

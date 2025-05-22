@@ -18,6 +18,8 @@ test.describe('Automation - Working With Elements', () => {
 
     console.log("Text on new page:", textvalue);
 
+    await expect(await newTab.title()).toBe('New Window');
+
     await page.waitForTimeout(5000)
   });
 
@@ -45,5 +47,30 @@ test.describe('Automation - Working With Elements', () => {
     await page.waitForTimeout(5000)
   });
 
+
+  test("flipkart - verify product display", async ({ page }) =>{
+
+      await page.goto('https://www.flipkart.com/');
+
+      await page.locator('input[name="q"]').fill("Iphone")
+
+     await page.locator('input[name="q"]').press('Enter')
+
+
+       const [newTab] = await Promise.all([
+      page.waitForEvent('popup'),
+        await page.locator("//div[text()='Apple iPhone 16 (Black, 128 GB)']").click()
+    ]);
+
+    await expect(newTab).toHaveURL(/apple-iphone-16-black-128-gb/)
+   
+
+    const nameofthePhone = await newTab.locator("._6EBuvT>span").textContent();
+
+    console.log(nameofthePhone)
+
+    await page.locator("//div[text()='Apple iPhone 13 (Midnight, 128 GB)']").click()
+
+  })
 
 })

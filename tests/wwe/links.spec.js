@@ -24,10 +24,10 @@ test.describe('Automation - Working With Elements', () => {
 
         await page.click('[data-jsl10n="commons.name"]')
       
-        await page.waitForTimeout(5000)
+        await page.waitForTimeout(5000) // Halt execution for 5 sec 
 
         await expect(page).toHaveURL('https://commons.wikimedia.org/wiki/Main_Page')
-        await page.goBack() //
+        await page.goBack() // Navigate Back to previous 
 
         await page.locator("//span[text()='Wikivoyage']").click()
         await page.waitForTimeout(5000)
@@ -36,7 +36,7 @@ test.describe('Automation - Working With Elements', () => {
 
         await page.waitForTimeout(5000)
 
-        await page.goForward()
+        await page.goForward() //Navigate forward to previous  
 
     })
 
