@@ -76,6 +76,8 @@ test('Verify Add job title with Mandatory fields', {tag : "@smoke"},async () => 
 
     await page.locator("//textarea[@placeholder='Type description here']").fill(jobtitledata.jobDescription)
 
+    await page.locator('input[type="file"]').setInputFiles("./testdata/files/Gemini_Generated_Image.png")
+
     await page.locator("//button[@type='submit']").click();
 
     await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList")

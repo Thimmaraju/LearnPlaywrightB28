@@ -41,10 +41,10 @@ test.describe('Automation - Working With Elements', () => {
         //     './testData/files/24. Example Defect.png'
         // ])
 
-        await page.locator('input[type="file"]').setInputFiles(['./testData/files/20. Test Design techniques.png', './testData/files/11. Seven-Principles.png'])
+        await page.locator('input[type="file"]').setInputFiles(['./testData/files/Gemini_Generated_Image.png', './testData/files/filetwo.png'])
 
-        await expect(page.locator('p.name').nth(0)).toHaveText('20. Test Design techniques.png')
-        await expect(page.locator('p.name').nth(1)).toHaveText('11. Seven-Principles.png')
+        await expect(page.locator('p.name').nth(0)).toHaveText('Gemini_Generated_Image.png')
+        await expect(page.locator('p.name').nth(1)).toHaveText('filetwo.png')
 
         await page.waitForTimeout(5000)
 
@@ -55,7 +55,7 @@ test.describe('Automation - Working With Elements', () => {
 
         const [download] = await Promise.all([
             page.waitForEvent('download'),
-            page.locator("//a[text()='test.png']").click()
+            page.locator('a[href="download/learn.jpg"]').click()
         ]);
 
         const suggestedFileName = download.suggestedFilename()
@@ -68,7 +68,8 @@ test.describe('Automation - Working With Elements', () => {
 
     test('Download Multiple files and assert', async ({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/download')
-        const fileNames = ["tiger.jpg", "infamous.jpeg"]
+
+        const fileNames = ["LambdaTest.txt", "luminoslogo.png"]
 
 
         for (const fileName of fileNames) {
@@ -86,7 +87,7 @@ test.describe('Automation - Working With Elements', () => {
     test('Direct Download and assert', async ({ page }) => {
 
         // Define the image URL
-        const imageUrl = 'https://www.icecric.news/wp-content/uploads/2023/03/Virat-Kohli-1.webp';
+        const imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzbTezYange_PJP3KLcuf3kr6q_5uQtRt-IgMo9p8pvmC1gWMGF9-YcaAEGk4m7l95hzZkHfCcJQ5hMQrBU43CHg';
 
         // Fetch the image using Playwright's request API
         const response = await page.request.get(imageUrl);
@@ -135,7 +136,7 @@ test.describe('Automation - Working With Elements', () => {
             }
 
             // Define the file name and path to save the image inside the 'downloads' folder
-            const savePath = path.join(downloadsFolder, 'parrot.jpg');
+            const savePath = path.join(downloadsFolder, 'raju_parrot.jpg');
 
             // Write the buffer to a file
             fs.writeFileSync(savePath, buffer);
@@ -146,6 +147,13 @@ test.describe('Automation - Working With Elements', () => {
     })
 
 
+
+     test("Verify scrooling ", async ({page}) =>{
+
+        await page.goto("https://www.flipkart.com/")
+
+        await page.locator("//span[text()='Help Center']").click()
+     })
     
 
 })
