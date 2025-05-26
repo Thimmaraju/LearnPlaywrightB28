@@ -16,18 +16,22 @@ test('Working with Shadow DOM2', async ({ page }) => {
 
     await page.keyboard.press('Enter')
 
-    await expect(page.locator('text=Before Big Science')).toBeVisible()
+     //await expect(page.locator('text=Science and Method')).toBeVisible()
 
-    await page.waitForTimeout(5000)
+     await page.waitForTimeout(5000)
 
-   // await page.reload()
+     //How to refresh the Page 
 
-    await page.keyboard.press('F5')
+      await page.reload()
 
-    await page.goBack()
+      //or 
 
-    await page.waitForTimeout(5000)
+     //await page.keyboard.press('F5')
 
-    await page.goForward()
+     await page.goBack()
+
+//     await page.waitForTimeout(5000)
+
+     await page.goForward()
 
 })

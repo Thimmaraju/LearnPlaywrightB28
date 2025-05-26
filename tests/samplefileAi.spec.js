@@ -22,7 +22,7 @@ test.describe('Login Tests', () => {
     
     });
 
-    test.only('create redif account', async ({ page }) => {
+    test('create redif account', async ({ page }) => {
         await page.goto('https://register.rediff.com/register/register.php?FormName=user_details');
         await page.getByPlaceholder('Enter your full name').click();    
         await page.getByPlaceholder('Enter your full name').fill('John Doe');

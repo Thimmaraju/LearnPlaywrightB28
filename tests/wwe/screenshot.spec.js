@@ -13,6 +13,8 @@ test('Full page screenshot', async ({ page }) => {
     await page.goto('https://www.flipkart.com/')
     await page.waitForTimeout(3000)
     await page.screenshot({ path: 'tests/screenshots/' + Date.now() + 'FullPage.png', fullPage: true })
+
+    await page.locator("(//div[@class='_25HC_u'])[3]").screenshot({ path: 'tests/screenshots/' + Date.now() + 'element.png' })
 });
 
 test('Element screenshot', async ({ page }) => {

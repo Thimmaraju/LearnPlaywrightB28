@@ -1,33 +1,33 @@
 import { test, expect } from '@playwright/test';
 
 
-// test("Based on BrowserName run different script", async ({ page, browserName }) => {
+test("Based on BrowserName run different script", async ({ page, browserName }) => {
 
-//     switch (browserName) {
-//         case "chromium":
+    switch (browserName) {
+        case "chromium":
 
-//             await page.goto("https://www.flipkart.com/");
-//             await page.close()
+            await page.goto("https://www.flipkart.com/");
+            await page.close()
 
-//             break;
+            break;
 
-//         case "firefox":
+        case "firefox":
 
-//             await page.goto("https://www.amazon.in/");
-//             await page.close()
+            await page.goto("https://www.amazon.in/");
+            await page.close()
 
-//             break;
-//         case "webkit":
+            break;
+        case "webkit":
 
-//             await page.goto("https://www.myntra.com/");
-//             await page.close()
+            await page.goto("https://www.myntra.com/");
+            await page.close()
 
-//             break;
+            break;
 
-//     }
+    }
 
 
-// })
+})
 
 
 

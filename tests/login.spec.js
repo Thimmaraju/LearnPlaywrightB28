@@ -12,11 +12,11 @@ test("Verify login with valid credentials",{tag: "@smoke"}, async ({ page }) => 
 
    //await page.locator("//input[@name='username']").fill(logininputs[0])
 
-   await page.fill("//input[@name='username']", logininputs[0])
+   await page.fill("//input[@name='username']", process.env.ORG_USERNAME)
 
    //await page.locator("input[type='password']").fill(logininputs[1])
 
-   await page.fill("input[type='password']", logininputs[1])
+   await page.fill("input[type='password']", process.env.ORG_PASSWORD)
 
    await page.locator("button[type='submit']").click()
 
