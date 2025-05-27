@@ -9,3 +9,4 @@ downloads
 allure-report
 allure-results
 tests/screenshots
+.env
