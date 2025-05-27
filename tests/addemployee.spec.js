@@ -12,7 +12,7 @@ test('test',{tag: "@smoke"}, async ({ page }) => {
  
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByPlaceholder("Username ").fill(logindata.username);
+  await page.locator('//input[@name="username"]').fill(process.env.RAJU_USERNAME);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(logindata.password);
   await page.getByRole('button', { name: 'Login' }).click();
