@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-import qadata from "../testdata/qa/qadata.json"
-import stagingdata from "../testData/staging/stagingdata.json"
+import qadata from "../../testdata/qa/qadata.json"
+import stagingdata from "../../testData/staging/stagingdata.json"
 
 
 test.describe("Group 1", async () => {

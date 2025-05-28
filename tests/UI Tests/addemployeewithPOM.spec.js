@@ -1,11 +1,11 @@
 const { test, expect } = require('@playwright/test');
 
-import { dashBoardPage } from '../pageObjects/dashBaordPage.po';
-import { loginPage } from '../pageObjects/loginpage.po';
-import { addEmployeePage } from "../pageObjects/addEmployeePage.po"
+import { dashBoardPage } from '../../pageObjects/dashBaordPage.po';
+import { loginPage } from '../../pageObjects/loginpage.po';
+import { addEmployeePage } from "../../pageObjects/addEmployeePage.po"
 
-import logindata from "../testdata/login.json"
-import addemployeedata from "../testdata/addemployee.json"
+import logindata from "../../testdata/login.json"
+import addemployeedata from "../../testdata/addemployee.json"
 
 test("Verify Add Employee", async ({ page }) => {
 

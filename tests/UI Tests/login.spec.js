@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import logindata from "../testdata/login.json"
+import logindata from "../../testdata/login.json"
 
 
 const logininputs = ["Admin", "admin123", "ekjnfiuhew", "ebfuhrewiuwbhf"]

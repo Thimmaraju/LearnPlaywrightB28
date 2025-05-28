@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-import jobtitledata from "../testdata/addjobtitle.json"
-import employeedetails from "../testdata/addemployee.json"
+import jobtitledata from "../../testdata/addjobtitle.json"
+import employeedetails from "../../testdata/addemployee.json"
 
 
 
