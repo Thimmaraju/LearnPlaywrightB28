@@ -31,7 +31,7 @@ test.beforeEach(async ({browser}) => {
     //click on login button
 
     await page.locator("button[type='submit']").click()
-    console.log("Clicking on login button")
+    console.log("Clicking on login button ")
 
     // Verify that the user is redirected to the dashboard page
 
